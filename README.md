@@ -13,7 +13,7 @@ It's nessecary to wrap it before using in production environment.
 ### API
 Since currently Phase Parsing Algrithm and Phase Unwrapping Algrithm is separated, you need to do as what's in TestUtils.cpp:
 ```C++
-void process_uwp(cv::Mat input){
+//put your structure light image into Cv::Mat input
 Mat output = Mat(SIZE_Y,SIZE_X,CV_32F,Scalar(0));
 Mat R = Mat(SIZE_Y,SIZE_X,CV_32F);
 input = depthMap(input,R);
