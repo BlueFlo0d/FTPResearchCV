@@ -10,7 +10,7 @@
 		AF42E1B81F8F526E00D71546 /* pffft.c in Sources */ = {isa = PBXBuildFile; fileRef = AF42E1B71F8F526E00D71546 /* pffft.c */; };
 		AF42E1BB1F8F52AA00D71546 /* QTFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF42E1B91F8F52AA00D71546 /* QTFFT.cpp */; };
 		AF42E1BD1F8F5BC600D71546 /* QTPhaseUnwrapL0Reliability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF42E1B01F8C3AA900D71546 /* QTPhaseUnwrapL0Reliability.cpp */; };
-		AF6992FB1F91B20400A5534E /* QTFTP_1DFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFBC435E1F88D97E00A746FE /* QTFTP_1DFFT.cpp */; };
+		AF4A3D7F1FAF243B0065EA58 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF4A3D7D1FAF243B0065EA58 /* Wrapper.cpp */; };
 		AF6A32A91F7CE17000BEFAEA /* libopencv_reg.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6A327F1F7CE16E00BEFAEA /* libopencv_reg.3.3.0.dylib */; };
 		AF6A32AA1F7CE17000BEFAEA /* libopencv_img_hash.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6A32801F7CE16E00BEFAEA /* libopencv_img_hash.3.3.0.dylib */; };
 		AF6A32AB1F7CE17000BEFAEA /* libopencv_video.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6A32811F7CE16F00BEFAEA /* libopencv_video.3.3.0.dylib */; };
@@ -55,6 +55,7 @@
 		AF6A32D21F7CE17000BEFAEA /* libopencv_core.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6A32A81F7CE17000BEFAEA /* libopencv_core.3.3.0.dylib */; };
 		AF6A32D51F7CE4DE00BEFAEA /* TestUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF6A32D41F7CE4DE00BEFAEA /* TestUtils.cpp */; };
 		AF6A32D71F7CE50900BEFAEA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF6A32D61F7CE50900BEFAEA /* main.cpp */; };
+		AFC945FB1FAED23F00531AA2 /* QTFTP_2DFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF6A32D81F81FE3400BEFAEA /* QTFTP_2DFFT.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,8 @@
 		AF42E1B71F8F526E00D71546 /* pffft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pffft.c; sourceTree = "<group>"; };
 		AF42E1B91F8F52AA00D71546 /* QTFFT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTFFT.cpp; sourceTree = "<group>"; };
 		AF42E1BA1F8F52AA00D71546 /* QTFFT.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QTFFT.hpp; sourceTree = "<group>"; };
+		AF4A3D7D1FAF243B0065EA58 /* Wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wrapper.cpp; sourceTree = "<group>"; };
+		AF4A3D7E1FAF243B0065EA58 /* Wrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Wrapper.hpp; sourceTree = "<group>"; };
 		AF6A32741F7CE14900BEFAEA /* FTPResearchCV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FTPResearchCV; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A327F1F7CE16E00BEFAEA /* libopencv_reg.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_reg.3.3.0.dylib; path = ../../../../usr/local/Cellar/opencv/3.3.0_3/lib/libopencv_reg.3.3.0.dylib; sourceTree = "<group>"; };
 		AF6A32801F7CE16E00BEFAEA /* libopencv_img_hash.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_img_hash.3.3.0.dylib; path = ../../../../usr/local/Cellar/opencv/3.3.0_3/lib/libopencv_img_hash.3.3.0.dylib; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				AFBC435E1F88D97E00A746FE /* QTFTP_1DFFT.cpp */,
 				AF1CDC441F88FF8100F6A890 /* QTFTP_1DSTW.cpp */,
 				AF6A32D91F81FE3400BEFAEA /* QTFTP.hpp */,
+				AF4A3D7D1FAF243B0065EA58 /* Wrapper.cpp */,
+				AF4A3D7E1FAF243B0065EA58 /* Wrapper.hpp */,
 				AF42E1B91F8F52AA00D71546 /* QTFFT.cpp */,
 				AF42E1BA1F8F52AA00D71546 /* QTFFT.hpp */,
 				AF42E1B71F8F526E00D71546 /* pffft.c */,
@@ -331,9 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF42E1BD1F8F5BC600D71546 /* QTPhaseUnwrapL0Reliability.cpp in Sources */,
+				AF4A3D7F1FAF243B0065EA58 /* Wrapper.cpp in Sources */,
 				AF42E1B81F8F526E00D71546 /* pffft.c in Sources */,
+				AFC945FB1FAED23F00531AA2 /* QTFTP_2DFFT.cpp in Sources */,
 				AF42E1BB1F8F52AA00D71546 /* QTFFT.cpp in Sources */,
-				AF6992FB1F91B20400A5534E /* QTFTP_1DFFT.cpp in Sources */,
 				AF6A32D51F7CE4DE00BEFAEA /* TestUtils.cpp in Sources */,
 				AF6A32D71F7CE50900BEFAEA /* main.cpp in Sources */,
 			);
@@ -450,7 +456,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					/usr/local/include,
 					/usr/local/include/opencv,
@@ -470,7 +476,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					/usr/local/include/opencv,
 					/usr/local/include,

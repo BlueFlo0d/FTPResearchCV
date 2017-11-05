@@ -16,7 +16,9 @@
 #include <opencv2/core/core.hpp>
 #define SIZE_X 1024
 #define SIZE_Y 1024
-#define FREQ_CENTER 100
+extern int FREQ_CENTER;
+extern int ACCEPTANCE;
 cv::Mat depthMap(cv::Mat input,cv::Mat &reliability);
+
 void analysis_phase(cv::Mat input);
 #endif /* QTFTP_hpp */

@@ -62,11 +62,11 @@ float *generate_figure(int N0,int N1){
     return X;
 }
 float rect_grating(float x){
-    const int n = 16;
-    int nx = (int)(x/M_PI/2*n);
-    return 0.5+0.5*sin(nx*M_PI*2/n);
-    //float sx = sin(x);
-    //return 0.5+0.25*sx+0.25*sx*sx*sx;
+    //const int n = 16;
+    //int nx = (int)(x/M_PI/2*n);
+    //return 0.5+0.5*sin(nx*M_PI*2/n);
+    float sx = sin(x);
+    return 0.5+0.25*sx+0.25*sx*sx*sx;
 }
 void generate_figure_cv(){
     Mat cv_output = Mat(SIZE_Y, SIZE_X, CV_32F);
@@ -76,7 +76,7 @@ void generate_figure_cv(){
     for (int i=0; i<SIZE_Y; i++) {
         for (int j=0; j<SIZE_X; j++) {
             //output[i*SIZE_X+j]=0.5+0.5*cos(((float)j/SIZE_X)*M_PI*2*FREQ_CENTER+((float)file[i*SIZE_X+j])/255.0);
-            output[i*SIZE_X+j]=rect_grating(((float)j/SIZE_X)*M_PI*2*FREQ_CENTER+((float)file[i*SIZE_X+j])/255.0);
+            output[i*SIZE_X+j]=rect_grating(((float)j/SIZE_X)*M_PI*2*FREQ_CENTER+((float)i/SIZE_X)*M_PI*2*FREQ_CENTER_Y+((float)file[i*SIZE_X+j])/255.0*5);
             output[i*SIZE_X+j]*=output[i*SIZE_X+j];
         }
     }

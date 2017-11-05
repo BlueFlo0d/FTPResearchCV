@@ -73,6 +73,7 @@ void process_spectrum(Mat input_mat,Mat &output_mat,int center,int width){
     float *output = output_mat.ptr<float>(0);
     //float dict[SIZE_X];
     float *dict = (float *)malloc(sizeof(float)*SIZE_X);
+    memset(dict, 0, sizeof(float)*SIZE_X);
     for (int j=0;j<SIZE_X;j++){
         int dis2 = j*j;
         if (dis2<wid2){
@@ -89,7 +90,7 @@ void process_spectrum(Mat input_mat,Mat &output_mat,int center,int width){
             output[(movedj+i*SIZE_X)*2]=input[(j+i*SIZE_X)*2]*factor;
             output[(movedj+i*SIZE_X)*2+1]=input[(j+i*SIZE_X)*2+1]*factor;
         }
-        printf("Report %d\n",(int)i);
+        //printf("Report %d\n",(int)i);
     }
 }
 Mat calculate_arg(Mat input_mat){
@@ -164,8 +165,8 @@ Mat depthMap(Mat input,Mat &reliability){
     Mat processed=Mat::zeros(input.rows, input.cols, CV_32FC2);
     process_spectrum(merged,processed, FREQ_CENTER, width);
 
-    //split(processed, planes);
-    //imwrite("fft_re.jpg", planes[0]);
+    split(processed, planes);
+    imwrite("fft_re.jpg", planes[0]);
     QTIDFT_rows(processed, processed);
     //idft(processed, processed,DFT_ROWS);
     TIC

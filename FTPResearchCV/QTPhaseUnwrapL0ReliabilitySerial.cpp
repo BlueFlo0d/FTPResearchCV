@@ -11,11 +11,11 @@
 #include <opencv2/photo.hpp>
 using namespace cv;
 const int queue_length = 2048;
-int _dimx = SIZE_X;
+const int dim = SIZE_X;
 const int cut_threshold = 0;
 #define queue_count 32
 //#define discard_ratio 32
-#define AT(x,y,map) (map[(y)*_dimx+(x)])
+#define AT(x,y,map) (map[(y)*dim+(x)])
 typedef struct _queue{
     int *x;
     int *y;
@@ -74,13 +74,13 @@ void destroy_queue(queue* aqueue){
     }
     //free(aqueue);
 }
-void find_startpoint(int *x,int *y,float *val,float *R,int xstart,int ystart,int dimx,int dimy){
-    for (int i=ystart; i<dimy; i++) {
-        for (int j=xstart; j<dimx; j++) {
-            if (R[i*dimx+j]>*val) {
+void find_startpoint(int *x,int *y,float *val,float *R){
+    for (int i=0; i<SIZE_Y; i++) {
+        for (int j=0; j<SIZE_X; j++) {
+            if (R[i*SIZE_X+j]>*val) {
                 *x=j;
                 *y=i;
-                *val =R[i*dimx+j];
+                *val =R[i*SIZE_X+j];
             }
         }
     }
@@ -109,7 +109,7 @@ inline void process_point(float *input,float *output,float *R,uchar *mask,int x,
     }
 }
 #define PHASE_THRESHOLD 3.1415926535
-void unwrap_point(float *input,float *output,float *R,uchar *mask,int x,int y,int *max,queue *queues,float max_val,int xstart,int ystart,int dimx,int dimy){
+void unwrap_point(float *input,float *output,float *R,uchar *mask,int x,int y,int *max,queue *queues,float max_val){
     float val = AT(x,y,output);
     float topline = val+PHASE_THRESHOLD;
     float baseline = val-PHASE_THRESHOLD;
@@ -120,29 +120,19 @@ void unwrap_point(float *input,float *output,float *R,uchar *mask,int x,int y,in
     }*/
 
     //printf("unwrap X %d Y %d\n",x,y);
-    if (((x+1)<dimx)&&AT(x+1,y,mask)) {
+    if (((x+1)<dim)&&AT(x+1,y,mask)) {
         process_point(input,output,R,mask, x+1, y, topline, baseline,max, queues, max_val);
     }
-    if ((x>xstart)&&AT(x-1,y,mask)) {
+    if ((x>0)&&AT(x-1,y,mask)) {
         process_point(input,output,R,mask, x-1, y, topline, baseline,max, queues, max_val);
     }
-    if ((y+1<dimy)&&AT(x,y+1,mask)) {
+    if ((y+1<dim)&&AT(x,y+1,mask)) {
         process_point(input,output,R,mask, x, y+1, topline, baseline,max, queues, max_val);
     }
-    if ((y>ystart)&&AT(x,y-1,mask)) {
+    if ((y>0)&&AT(x,y-1,mask)) {
         process_point(input,output,R,mask, x, y-1, topline, baseline,max, queues, max_val);
     }
 }
-typedef struct _unwrap_args{
-    float *input;
-    float *output;
-    float *R;
-    float *mask;
-    int *dimx;
-    int *dimy;
-    int *startx;
-    int *starty;
-} unwrap_args;
 
 //output unused.
 void unwrap_phase(cv::Mat &mat_input,cv::Mat &mat_output,cv::Mat &mat_R){
@@ -153,10 +143,8 @@ void unwrap_phase(cv::Mat &mat_input,cv::Mat &mat_output,cv::Mat &mat_R){
     float *input = mat_input.ptr<float>(0);
     float *output = mat_output.ptr<float>(0);
     uchar *mask = mat_mask.ptr<uchar>(0);
-    int dimx = mat_input.cols;
-    _dimx=dimx;
-    int dimy = mat_input.rows;
-    find_startpoint(&x, &y, &max_val, R,0,0,dimx,dimy);
+
+    find_startpoint(&x, &y, &max_val, R);
 
     queue queues[queue_count];
     for (int i=0; i<queue_count; i++) {
@@ -174,7 +162,7 @@ void unwrap_phase(cv::Mat &mat_input,cv::Mat &mat_output,cv::Mat &mat_R){
             else
                 break;
         }
-        unwrap_point(input,output,R, mask, x, y,&max, queues, max_val,0,0,dimx,dimy);
+        unwrap_point(input,output,R, mask, x, y,&max, queues, max_val);
     }
     /*
     for (int i=0; i<1024; i++) {

@@ -718,9 +718,10 @@ using namespace cv;
 void report_reliability(const Mat &input,Mat &reliablity){
     const float reliability_threshold = 100.0;
     const float *ptr = input.ptr<float>(0);
+    const int SIZEY=input.rows, SIZEX=input.cols;
     uchar *ptr_r = reliablity.ptr<uchar>(0);
-    for (int i=0; i<SIZE_Y; i++) {
-        for (int j=0; j<SIZE_X; j++) {
+    for (int i=0; i<SIZEY; i++) {
+        for (int j=0; j<SIZEX; j++) {
             if (ptr[i*SIZE_X+j]<reliability_threshold) {
                 ptr_r[i*SIZE_X+j]=1;
             }
