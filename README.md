@@ -20,4 +20,3 @@ input = depthMap(input,R);
 unwrap_phase(input, output,R);
 ```
 Here the output is raw Phase data. In order to convert to absolute distance data a ToF measured point is required. (from proximity sensor)
-And SIZE_X SIZE_Y are macros defined to be 1024... Will modify this soon.
