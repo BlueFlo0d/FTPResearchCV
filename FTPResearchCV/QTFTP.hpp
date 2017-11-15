@@ -14,6 +14,10 @@
 #include <stdio.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>
+#define QT_OMP
+#ifdef QT_OMP
+#include <omp.h>
+#endif
 #define SIZE_X 1024
 #define SIZE_Y 1024
 extern int FREQ_CENTER;
