@@ -86,3 +86,15 @@ void QTIDFT_rows(const cv::Mat &input,cv::Mat &output){
     }
     pffft_destroy_setup(setup);
 }
+void QTDFT_2D(const cv::Mat &input,cv::Mat &output){
+    QTDFT_rows(input, output);
+    transpose(output, output);
+    QTDFT_rows(output, output);
+    transpose(output, output);
+}
+void QTIDFT_2D(const cv::Mat &input,cv::Mat &output){
+    QTIDFT_rows(input, output);
+    transpose(output, output);
+    QTIDFT_rows(output, output);
+    transpose(output, output);
+}

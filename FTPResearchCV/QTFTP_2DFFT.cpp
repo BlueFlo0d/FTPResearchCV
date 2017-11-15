@@ -8,6 +8,8 @@
 
 #include "QTFTP.hpp"
 #include "TestUtils.hpp"
+#include "QTFFT.hpp"
+
 using namespace cv;
 const int width = (int)(FREQ_CENTER*0.9);
 #define CHANNELS 2
@@ -29,10 +31,10 @@ Mat process_spectrum(Mat input_mat,int centerx,int centery,int width){
     float *output = output_mat.ptr<float>(0);
     #pragma omp parallel for
     for (int i=0; i<SIZEY; i++) {
-        int movedi = (i-centery)%SIZEY;
+        int movedi = (i-centery+SIZEY)%SIZEY;
         int reali = (i<SIZEY/2)?i:(SIZEY-i);
         for (int j=0; j<SIZEX; j++) {
-            int movedj = (j-centerx)%SIZEX;
+            int movedj = (j-centerx+SIZEX)%SIZEX;
             int realj = (movedj<SIZEX/2)?movedj:(SIZEX-movedj);
             int dis2 = reali*reali+realj*realj;
             if (dis2<wid2) {

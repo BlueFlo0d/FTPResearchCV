@@ -71,7 +71,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AF1CDC441F88FF8100F6A890 /* QTFTP_1DSTW.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTFTP_1DSTW.cpp; sourceTree = "<group>"; };
 		AF42E1B01F8C3AA900D71546 /* QTPhaseUnwrapL0Reliability.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTPhaseUnwrapL0Reliability.cpp; sourceTree = "<group>"; };
 		AF42E1B61F8F526D00D71546 /* pffft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pffft.h; sourceTree = "<group>"; };
 		AF42E1B71F8F526E00D71546 /* pffft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pffft.c; sourceTree = "<group>"; };
@@ -127,11 +126,7 @@
 		AF6A32D61F7CE50900BEFAEA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AF6A32D81F81FE3400BEFAEA /* QTFTP_2DFFT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTFTP_2DFFT.cpp; sourceTree = "<group>"; };
 		AF6A32D91F81FE3400BEFAEA /* QTFTP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QTFTP.hpp; sourceTree = "<group>"; };
-		AF6A32DB1F85EF8600BEFAEA /* QTPhaseUnwrapL2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTPhaseUnwrapL2.cpp; sourceTree = "<group>"; };
-		AF6A32DE1F886DC900BEFAEA /* QTPhaseUnwrapL0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTPhaseUnwrapL0.cpp; sourceTree = "<group>"; };
 		AF6A32DF1F886DC900BEFAEA /* QTPhaseUnwrap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QTPhaseUnwrap.hpp; sourceTree = "<group>"; };
-		AFBC435E1F88D97E00A746FE /* QTFTP_1DFFT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = QTFTP_1DFFT.cpp; sourceTree = "<group>"; };
-		AFE3E6DF1F89196E00D45959 /* PhaseUnwrapL0Reliability.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseUnwrapL0Reliability.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,14 +202,9 @@
 		AF6A32761F7CE14900BEFAEA /* FTPResearchCV */ = {
 			isa = PBXGroup;
 			children = (
-				AF6A32DB1F85EF8600BEFAEA /* QTPhaseUnwrapL2.cpp */,
-				AF6A32DE1F886DC900BEFAEA /* QTPhaseUnwrapL0.cpp */,
-				AFE3E6DF1F89196E00D45959 /* PhaseUnwrapL0Reliability.cpp */,
 				AF42E1B01F8C3AA900D71546 /* QTPhaseUnwrapL0Reliability.cpp */,
 				AF6A32DF1F886DC900BEFAEA /* QTPhaseUnwrap.hpp */,
 				AF6A32D81F81FE3400BEFAEA /* QTFTP_2DFFT.cpp */,
-				AFBC435E1F88D97E00A746FE /* QTFTP_1DFFT.cpp */,
-				AF1CDC441F88FF8100F6A890 /* QTFTP_1DSTW.cpp */,
 				AF6A32D91F81FE3400BEFAEA /* QTFTP.hpp */,
 				AF4A3D7D1FAF243B0065EA58 /* Wrapper.cpp */,
 				AF4A3D7E1FAF243B0065EA58 /* Wrapper.hpp */,
@@ -456,7 +446,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					/usr/local/include,
 					/usr/local/include/opencv,
@@ -476,7 +466,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					/usr/local/include/opencv,
 					/usr/local/include,

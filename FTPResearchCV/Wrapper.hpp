@@ -12,4 +12,5 @@
 #include <stdio.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>
+cv::Mat depth_map(cv::Mat &img0,cv::Mat &img1,cv::Mat &img2);
 #endif /* Wrapper_hpp */

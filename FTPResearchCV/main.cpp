@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 #include "TestUtils.hpp"
 int main(int argc, const char * argv[]) {
     printf("Arc Reactive Tech FTP Research 2017\nPowered By Tech Lead QT Hong\nE-mail:hongqt@arcreativetech.com\nOptions:\n");
@@ -19,7 +20,8 @@ int main(int argc, const char * argv[]) {
     printf("Others: Exit\n");
     while (1) {
         int choice=0;
-        scanf("%d",&choice);
+        //scanf("%d",&choice);
+        choice=4;
         switch (choice) {
             case 1:
                 free(generate_figure(1024, 1024));
@@ -40,6 +42,7 @@ int main(int argc, const char * argv[]) {
             {
                 cv::Mat test = cv::imread("test.jpg",CV_LOAD_IMAGE_GRAYSCALE);
                 process_uwp(test);
+                exit(0);
                 break;
             }
             case 5:

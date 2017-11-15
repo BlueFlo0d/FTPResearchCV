@@ -13,5 +13,6 @@
 #include "opencv2/core/core.hpp"
 void QTDFT_rows(const cv::Mat &input,cv::Mat &output);
 void QTIDFT_rows(const cv::Mat &input,cv::Mat &output);
-
+void QTDFT_2D(const cv::Mat &input,cv::Mat &output);
+void QTIDFT_2D(const cv::Mat &input,cv::Mat &output);
 #endif /* QTFFT_hpp */

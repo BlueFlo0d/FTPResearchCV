@@ -15,9 +15,11 @@ void normalize_for_display(Mat &src,bool bypassed){
     float *ptr = src.ptr<float>(0);
     float min=0,max=0;
     int maxi=0,maxj=0;
-    for (int i=0; i<SIZE_Y; i++) {
-        for (int j=0; j<SIZE_X; j++) {
-            float val = ptr[i*SIZE_X+j];
+    int SIZEY=src.rows;
+    int SIZEX=src.cols;
+    for (int i=0; i<SIZEY; i++) {
+        for (int j=0; j<SIZEX; j++) {
+            float val = ptr[i*SIZEX+j];
             //printf("%f\n",val);
             if (val<min) {
                 min = val;
@@ -33,9 +35,9 @@ void normalize_for_display(Mat &src,bool bypassed){
     if (!bypassed) {
         float factor = 255.0/(max-min);
        // float factor = 255.0/7;
-        for (int i=0; i<SIZE_Y; i++) {
-            for (int j=0; j<SIZE_X; j++) {
-                ptr[i*SIZE_X+j]=(ptr[i*SIZE_X+j]-min)*factor;
+        for (int i=0; i<SIZEY; i++) {
+            for (int j=0; j<SIZEX; j++) {
+                ptr[i*SIZEX+j]=(ptr[i*SIZEX+j]-min)*factor;
                 //ptr[i*SIZE_X+j]=ptr[i*SIZE_X+j]*factor;
             }
         }
