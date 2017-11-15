@@ -1,3 +1,0 @@
-OBJ = TestUtils.o QTFTP_1DFFT.o QTFFT.o pffft.o QTPhaseUnwrapL0Reliability.o
-test: $(OBJ)
-	ld $(OBJ) -o test
