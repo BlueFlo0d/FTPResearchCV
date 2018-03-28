@@ -1,5 +1,12 @@
+# Important Note
+
+This is one of my early project aims to implement high performance structural light reconstruction algorithm on mobile platforms. The performance turns out to be very good. However, I've decided to stop the development, and make all of the code open source.
+
+All code in this repo is released under AGPL v2.0, even the license isn't added to every file.
+
 # FTPResearchCV
 Project Moon 3d Reconstruction
+
 Currently the code is for **research** purpose.
 The code currently assumed a 1024x1024 image is provided, and the API exposes implemention detail.
 It's nessecary to wrap it before using in production environment.
